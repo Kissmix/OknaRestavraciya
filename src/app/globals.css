@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #c2703e;
+  --color-brand-strong: #a5572c;
+  --color-brand-soft: #f9ece1;
+  --color-ink: #1e293b;
+  --color-ink-soft: #52637a;
+  --color-ink-faint: #8494a9;
+  --color-paper: #f8fafc;
+  --color-line: #e7e0d8;
+  --color-wa: #25d366;
+  --color-tg: #229ed9;
+  --color-max: #6d4aff;
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+body {
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(194, 112, 62, 0.22);
+}
+
+:focus-visible {
+  outline: 3px solid rgba(194, 112, 62, 0.5);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* --- Scroll reveal ------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Keyframes ---------------------------------------------------------- */
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.menu-in {
+  animation: menu-in 0.4s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes item-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.item-in {
+  animation: item-in 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.sheet-in {
+  animation: sheet-in 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fade-in 0.3s ease both;
+}
+
+@keyframes ring-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(194, 112, 62, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(194, 112, 62, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(194, 112, 62, 0);
+  }
+}
+.pulse-soft {
+  animation: ring-pulse 2.8s ease-out infinite;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.float-y {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+/* --- Helper textures ---------------------------------------------------- */
+.dots-texture {
+  background-image: radial-gradient(
+    rgba(30, 41, 59, 0.08) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+}
+
+.dots-light {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.14) 1px,
+    transparent 1px
+  );
+  background-size: 18px 18px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .pulse-soft,
+  .float-y,
+  .menu-in,
+  .item-in,
+  .sheet-in,
+  .fade-in {
+    animation: none !important;
+  }
+}
