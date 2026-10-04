@@ -72,9 +72,9 @@ export function CtaBand({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Написать в MAX"
-                className="grid h-14 w-14 place-items-center rounded-2xl bg-max text-white transition hover:brightness-110 active:scale-95"
+                className="relative block h-14 w-14 overflow-hidden rounded-2xl transition hover:brightness-110 active:scale-95"
               >
-                <MaxIcon className="h-6 w-6" />
+                <MaxIcon className="h-full w-full" />
               </a>
               <a
                 href={CONTACTS.whatsapp}

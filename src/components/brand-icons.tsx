@@ -16,19 +16,16 @@ export function TelegramIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export function MaxIcon(props: SVGProps<SVGSVGElement>) {
+export function MaxIcon({ className = "" }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.4"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+    // Official MAX logo (app icon with transparent rounded corners)
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/images/max-logo.png"
+      alt=""
       aria-hidden="true"
-      {...props}
-    >
-      <path d="M4.5 18.5v-13c0-1 .98-1.63 1.72-1L12 10.4l5.78-5.9c.74-.63 1.72 0 1.72 1v13" />
-    </svg>
+      draggable={false}
+      className={`select-none object-cover ${className}`}
+    />
   );
 }

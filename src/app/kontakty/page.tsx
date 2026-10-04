@@ -28,6 +28,7 @@ const CHANNELS = [
     href: CONTACTS.phoneHref,
     Icon: PhoneCall,
     tile: "bg-brand text-white",
+    iconCls: "h-7 w-7",
     external: false,
     highlight: true,
   },
@@ -38,6 +39,7 @@ const CHANNELS = [
     href: CONTACTS.emailHref,
     Icon: Mail,
     tile: "bg-ink text-white",
+    iconCls: "h-7 w-7",
     external: false,
     highlight: false,
   },
@@ -47,7 +49,8 @@ const CHANNELS = [
     hint: "Можно скинуть фото окна — посоветуем сразу",
     href: CONTACTS.max,
     Icon: MaxIcon,
-    tile: "bg-max text-white",
+    tile: "overflow-hidden",
+    iconCls: "h-full w-full",
     external: true,
     highlight: false,
   },
@@ -58,6 +61,7 @@ const CHANNELS = [
     href: CONTACTS.whatsapp,
     Icon: WhatsAppIcon,
     tile: "bg-wa text-white",
+    iconCls: "h-7 w-7",
     external: true,
     highlight: false,
   },
@@ -68,6 +72,7 @@ const CHANNELS = [
     href: CONTACTS.telegram,
     Icon: TelegramIcon,
     tile: "bg-tg text-white",
+    iconCls: "h-7 w-7",
     external: true,
     highlight: false,
   },
@@ -142,7 +147,7 @@ export default function ContactsPage() {
                         className={`grid h-14 w-14 shrink-0 place-items-center rounded-2xl transition group-hover:scale-105 sm:h-16 sm:w-16 ${c.tile}`}
                         aria-hidden="true"
                       >
-                        <c.Icon className="h-7 w-7" />
+                        <c.Icon className={c.iconCls} />
                       </span>
                       <span className="min-w-0 flex-1">
                         <span className="block text-xs font-extrabold uppercase tracking-[0.12em] text-ink-faint">

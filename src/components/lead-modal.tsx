@@ -166,10 +166,13 @@ export function LeadForm({
             href={CONTACTS.max}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-14 flex-col items-center justify-center gap-0.5 rounded-2xl bg-max text-white transition hover:brightness-110 active:scale-[0.98]"
+            aria-label="Написать в MAX"
+            className="relative block h-14 overflow-hidden rounded-2xl transition hover:brightness-110 active:scale-[0.98]"
           >
-            <MaxIcon className="h-5 w-5" />
-            <span className="text-[11px] font-bold">MAX</span>
+            <MaxIcon className="absolute inset-0 h-full w-full" />
+            <span className="absolute inset-x-3 bottom-1.5 rounded-full bg-black/40 py-1 text-center text-[10px] font-bold leading-none text-white backdrop-blur-[2px]">
+              MAX
+            </span>
           </a>
           <a
             href={CONTACTS.whatsapp}

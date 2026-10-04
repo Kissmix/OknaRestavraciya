@@ -8,13 +8,15 @@ const ITEMS = [
     label: `Позвонить: ${CONTACTS.phoneDisplay}`,
     Icon: Phone,
     cls: "bg-brand pulse-soft",
+    iconCls: "h-5 w-5 sm:h-[22px] sm:w-[22px]",
     external: false,
   },
   {
     href: CONTACTS.max,
     label: "Написать в MAX",
     Icon: MaxIcon,
-    cls: "bg-max",
+    cls: "overflow-hidden",
+    iconCls: "h-full w-full",
     external: true,
   },
   {
@@ -22,6 +24,7 @@ const ITEMS = [
     label: "Написать в WhatsApp",
     Icon: WhatsAppIcon,
     cls: "bg-wa",
+    iconCls: "h-5 w-5 sm:h-[22px] sm:w-[22px]",
     external: true,
   },
   {
@@ -29,6 +32,7 @@ const ITEMS = [
     label: "Написать в Telegram",
     Icon: TelegramIcon,
     cls: "bg-tg",
+    iconCls: "h-5 w-5 sm:h-[22px] sm:w-[22px]",
     external: true,
   },
 ];
@@ -40,7 +44,7 @@ export function FloatingContacts() {
       className="fixed bottom-4 right-3.5 z-40 sm:bottom-6 sm:right-6"
     >
       <div className="flex flex-col gap-1.5 rounded-full bg-white/85 p-1.5 shadow-xl shadow-ink/15 ring-1 ring-ink/8 backdrop-blur-md">
-        {ITEMS.map(({ href, label, Icon, cls, external }) => (
+        {ITEMS.map(({ href, label, Icon, cls, iconCls, external }) => (
           <a
             key={label}
             href={href}
@@ -50,7 +54,7 @@ export function FloatingContacts() {
               : {})}
             className={`grid h-11 w-11 place-items-center rounded-full text-white transition hover:scale-105 active:scale-95 sm:h-[52px] sm:w-[52px] ${cls}`}
           >
-            <Icon className="h-5 w-5 sm:h-[22px] sm:w-[22px]" />
+            <Icon className={iconCls} />
           </a>
         ))}
       </div>

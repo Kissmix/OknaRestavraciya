@@ -6,9 +6,9 @@ import { Logo } from "@/components/logo";
 import { MaxIcon, TelegramIcon, WhatsAppIcon } from "@/components/brand-icons";
 
 const MESSENGERS = [
-  { href: CONTACTS.max, label: "MAX", Icon: MaxIcon },
-  { href: CONTACTS.whatsapp, label: "WhatsApp", Icon: WhatsAppIcon },
-  { href: CONTACTS.telegram, label: "Telegram", Icon: TelegramIcon },
+  { href: CONTACTS.max, label: "MAX", Icon: MaxIcon, iconCls: "h-5 w-5 rounded-[22%]" },
+  { href: CONTACTS.whatsapp, label: "WhatsApp", Icon: WhatsAppIcon, iconCls: "h-5 w-5" },
+  { href: CONTACTS.telegram, label: "Telegram", Icon: TelegramIcon, iconCls: "h-5 w-5" },
 ];
 
 export function Footer() {
@@ -33,7 +33,7 @@ export function Footer() {
               >
                 <Phone className="h-5 w-5" />
               </a>
-              {MESSENGERS.map(({ href, label, Icon }) => (
+              {MESSENGERS.map(({ href, label, Icon, iconCls }) => (
                 <a
                   key={label}
                   href={href}
@@ -42,7 +42,7 @@ export function Footer() {
                   aria-label={`Написать в ${label}`}
                   className="grid h-12 w-12 place-items-center rounded-full bg-white/8 text-slate-300 ring-1 ring-white/10 transition hover:bg-white/15 hover:text-white active:scale-95"
                 >
-                  <Icon className="h-5 w-5" />
+                  <Icon className={iconCls} />
                 </a>
               ))}
             </div>

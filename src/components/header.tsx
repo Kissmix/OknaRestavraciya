@@ -18,9 +18,30 @@ import { Logo, LogoMark } from "@/components/logo";
 import { MaxIcon, TelegramIcon, WhatsAppIcon } from "@/components/brand-icons";
 
 const MESSENGERS = [
-  { href: CONTACTS.max, label: "MAX", Icon: MaxIcon, cls: "bg-max" },
-  { href: CONTACTS.whatsapp, label: "WhatsApp", Icon: WhatsAppIcon, cls: "bg-wa" },
-  { href: CONTACTS.telegram, label: "Telegram", Icon: TelegramIcon, cls: "bg-tg" },
+  {
+    href: CONTACTS.max,
+    label: "MAX",
+    Icon: MaxIcon,
+    tileCls: "",
+    stripCls: "h-4 w-4 rounded-[22%]",
+    filled: true,
+  },
+  {
+    href: CONTACTS.whatsapp,
+    label: "WhatsApp",
+    Icon: WhatsAppIcon,
+    tileCls: "bg-wa",
+    stripCls: "h-4 w-4",
+    filled: false,
+  },
+  {
+    href: CONTACTS.telegram,
+    label: "Telegram",
+    Icon: TelegramIcon,
+    tileCls: "bg-tg",
+    stripCls: "h-4 w-4",
+    filled: false,
+  },
 ];
 
 export function Header() {
@@ -72,7 +93,7 @@ export function Header() {
             </div>
             <div className="flex items-center gap-1.5">
               <span className="mr-1 text-slate-400">Мы в мессенджерах:</span>
-              {MESSENGERS.map(({ href, label, Icon }) => (
+              {MESSENGERS.map(({ href, label, Icon, stripCls }) => (
                 <a
                   key={label}
                   href={href}
@@ -81,7 +102,7 @@ export function Header() {
                   aria-label={label}
                   className="grid h-8 w-8 place-items-center rounded-full text-slate-300 transition hover:bg-white/10 hover:text-white"
                 >
-                  <Icon className="h-4 w-4" />
+                  <Icon className={stripCls} />
                 </a>
               ))}
             </div>
@@ -240,17 +261,28 @@ export function Header() {
                 {CONTACTS.phoneDisplay}
               </a>
               <div className="mt-3 grid grid-cols-3 gap-2.5">
-                {MESSENGERS.map(({ href, label, Icon, cls }) => (
+                {MESSENGERS.map(({ href, label, Icon, tileCls, filled }) => (
                   <a
                     key={label}
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Написать в ${label}`}
-                    className={`flex h-16 flex-col items-center justify-center gap-1 rounded-2xl text-white ${cls} transition active:scale-[0.98]`}
+                    className={`relative flex h-16 flex-col items-center justify-center gap-1 overflow-hidden rounded-2xl text-white ${tileCls} transition active:scale-[0.98]`}
                   >
-                    <Icon className="h-6 w-6" />
-                    <span className="text-xs font-bold">{label}</span>
+                    {filled ? (
+                      <>
+                        <Icon className="absolute inset-0 h-full w-full" />
+                        <span className="absolute bottom-1.5 rounded-full bg-black/40 px-2.5 py-1 text-[10px] font-bold leading-none backdrop-blur-[2px]">
+                          {label}
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <Icon className="h-6 w-6" />
+                        <span className="text-xs font-bold">{label}</span>
+                      </>
+                    )}
                   </a>
                 ))}
               </div>
