@@ -145,7 +145,7 @@ export default function HomePage() {
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-14 pt-16 sm:px-6 sm:pb-20 sm:pt-24 lg:pb-24 lg:pt-28 xl:px-8">
           <Reveal className="max-w-2xl">
             <div className="flex flex-wrap gap-2">
-              {["Без пыли и грязи", "За 1–3 дня", "От 7 499 ₽"].map((chip) => (
+              {["Качественно", "За 1–3 дня", "От 7 499 ₽"].map((chip) => (
                 <span
                   key={chip}
                   className="rounded-full bg-white/12 px-3.5 py-2 text-xs font-extrabold uppercase tracking-[0.12em] text-white ring-1 ring-white/20 backdrop-blur-sm"
